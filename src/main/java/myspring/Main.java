@@ -5,7 +5,9 @@ package myspring;
  */
 public class Main {
     public static void main(String[] args) {
-        IRobot iRobot = new IRobot();
+        ObjectFactory factory = ObjectFactory.getInstance();
+        IRobot iRobot = factory.createObject(IRobot.class);
         iRobot.cleanRoom();
+
     }
 }
