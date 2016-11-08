@@ -1,5 +1,7 @@
 package myspring;
 
+import javax.annotation.PostConstruct;
+
 /**
  * Created by Evegeny on 06/11/2016.
  */
@@ -9,10 +11,18 @@ public class IRobot {
     @InjectByType
     private Cleaner cleaner;
 
+    @PostConstruct
+    public void init() {
+        System.out.println(cleaner.getClass());
+    }
+
+    @InjectRandomName
+    private String name;
+
     public void cleanRoom() {
-        speaker.speak("I started my work");
+        speaker.speak(name+ " started his work");
         cleaner.clean();
-        speaker.speak("I finished my work");
+        speaker.speak(name+ " finished his work");
     }
 
 
